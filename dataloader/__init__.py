@@ -5,12 +5,13 @@ from .dramaqa import DramaQA
 from .star import STAR
 from .vlep import VLEP
 from .tvqa import TVQA
+from .siq2 import SIQ2
 
-
-dataset_mapping = {'nextqa': NextQA, 'star': STAR, 'dramaqa': DramaQA, 'vlep': VLEP, 'tvqa': TVQA}
-num_options_mapping = {'nextqa': 5, 'star': 4, 'dramaqa': 5, 'vlep': 2, 'tvqa': 5}
+dataset_mapping = {'nextqa': NextQA, 'star': STAR, 'dramaqa': DramaQA, 'vlep': VLEP, 'tvqa': TVQA,'siq2': SIQ2}
+num_options_mapping = {'nextqa': 5, 'star': 4, 'dramaqa': 5, 'vlep': 2, 'tvqa': 5, 'siq2' : 4}
 
 def load_data(args, tokenizer, split='train'):
+    # print(args.dataset)
     args.num_options = num_options_mapping[args.dataset]
     dataset = dataset_mapping[args.dataset](args=args, tokenizer=tokenizer, split=split)
     

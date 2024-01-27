@@ -64,6 +64,15 @@ def get_args_parser():
     parser.add_argument('--bias', type=float, default=3., help='attention bias')
     parser.add_argument('--tau', type=float, default=100., help='tau')
     parser.add_argument('--sub', action='store_true', help='subtitles for VLEP and TVQA')
+    
+    
+    # SIQ2 related parameters
+    parser.add_argument('--speaking_turn_sampling', action='store_true', help='if true, use speaking turn sampling from the same video')
+    parser.add_argument("--speaking_turns_path",default=None,type=str)
+    
+    parser.add_argument('--blank_video', action='store_true', help='if true, use blank video')
+    parser.add_argument('--blank_subs', action='store_true', help='if true, use blank subtitles')
+    parser.add_argument('--no_modality_inp', action='store_true', help='if true, no modality input')
 
     return parser
 
